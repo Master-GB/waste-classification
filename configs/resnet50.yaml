@@ -1,0 +1,18 @@
+model:
+  name: resnet50
+  pretrained: true
+  num_classes: 10
+  freeze_backbone: true
+
+training:
+  epochs: 10
+  batch_size: 32
+  learning_rate: 0.001
+  weight_decay: 0.0001
+
+optimizer:
+  name: AdamW
+
+experiment:
+  name: resnet50_frozen_backbone
+  seed: 42

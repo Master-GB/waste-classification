@@ -2,6 +2,8 @@ import time
 
 import torch
 from tqdm.auto import tqdm
+from pathlib import Path
+
 
 
 def train_one_epoch(
@@ -218,12 +220,12 @@ def train_model(
     device,
     epochs,
     scheduler=None,
+    checkpoint_path=None,
 ):
     """
     Train and validate a model for multiple epochs.
 
-    Returns:
-        history dictionary
+    The best model is selected using validation loss.
     """
 
     history = {
@@ -234,59 +236,39 @@ def train_model(
         "epoch_time_seconds": [],
     }
 
+    best_val_loss = float("inf")
+
     for epoch in range(1, epochs + 1):
 
-        print(
-            f"\nEpoch {epoch}/{epochs}"
-        )
+        print(f"\nEpoch {epoch}/{epochs}")
 
         start_time = time.perf_counter()
 
-        train_loss, train_accuracy = (
-            train_one_epoch(
-                model=model,
-                dataloader=train_loader,
-                criterion=criterion,
-                optimizer=optimizer,
-                device=device,
-            )
+        train_loss, train_accuracy = train_one_epoch(
+            model=model,
+            dataloader=train_loader,
+            criterion=criterion,
+            optimizer=optimizer,
+            device=device,
         )
 
-        val_loss, val_accuracy = (
-            validate_one_epoch(
-                model=model,
-                dataloader=val_loader,
-                criterion=criterion,
-                device=device,
-            )
+        val_loss, val_accuracy = validate_one_epoch(
+            model=model,
+            dataloader=val_loader,
+            criterion=criterion,
+            device=device,
         )
 
         if scheduler is not None:
             scheduler.step()
 
-        epoch_time = (
-            time.perf_counter() - start_time
-        )
+        epoch_time = time.perf_counter() - start_time
 
-        history["train_loss"].append(
-            train_loss
-        )
-
-        history["train_accuracy"].append(
-            train_accuracy
-        )
-
-        history["val_loss"].append(
-            val_loss
-        )
-
-        history["val_accuracy"].append(
-            val_accuracy
-        )
-
-        history["epoch_time_seconds"].append(
-            epoch_time
-        )
+        history["train_loss"].append(train_loss)
+        history["train_accuracy"].append(train_accuracy)
+        history["val_loss"].append(val_loss)
+        history["val_accuracy"].append(val_accuracy)
+        history["epoch_time_seconds"].append(epoch_time)
 
         print(
             f"Train Loss: {train_loss:.4f} | "
@@ -298,8 +280,36 @@ def train_model(
             f"Val Acc:   {val_accuracy:.4f}"
         )
 
-        print(
-            f"Time: {epoch_time:.1f}s"
-        )
+        print(f"Time: {epoch_time:.1f}s")
+
+        # Save best validation model
+        if (
+            checkpoint_path is not None
+            and val_loss < best_val_loss
+        ):
+            best_val_loss = val_loss
+
+            checkpoint_path = Path(checkpoint_path)
+
+            checkpoint_path.parent.mkdir(
+                parents=True,
+                exist_ok=True,
+            )
+
+            torch.save(
+                {
+                    "epoch": epoch,
+                    "model_state_dict": model.state_dict(),
+                    "optimizer_state_dict": optimizer.state_dict(),
+                    "val_loss": val_loss,
+                    "val_accuracy": val_accuracy,
+                },
+                checkpoint_path,
+            )
+
+            print(
+                f"Best model saved "
+                f"(val_loss={val_loss:.4f})"
+            )
 
     return history
