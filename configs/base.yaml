@@ -1,0 +1,25 @@
+project:
+  name: waste-classification
+  seed: 42
+
+data:
+  dataset_root: data/raw/garbage-dataset
+  manifest_dir: data/manifests
+  num_classes: 10
+  image_size: 224
+
+training:
+  batch_size: 32
+  num_workers: 0
+
+classes:
+  - battery
+  - biological
+  - cardboard
+  - clothes
+  - glass
+  - metal
+  - paper
+  - plastic
+  - shoes
+  - trash
