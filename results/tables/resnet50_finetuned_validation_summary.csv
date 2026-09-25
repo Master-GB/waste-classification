@@ -1,0 +1,2 @@
+model,experiment,best_epoch,val_loss,accuracy,macro_precision,macro_recall,macro_f1,weighted_f1,macro_roc_auc,weighted_roc_auc
+ResNet50,Layer4 Fine-Tuning,3,0.12801878098096803,0.9659244264507423,0.9589379904000493,0.9583664066856146,0.9583901818882321,0.9659500413050668,0.9986114722823702,0.9987377329750793
