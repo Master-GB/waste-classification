@@ -1,0 +1,50 @@
+{
+  "run_id": "efficientnetb0_frozen_backbone_20260926T175125482243Z",
+  "training_complete": true,
+  "started_at_utc": "2026-09-26T17:51:25.529774+00:00",
+  "source_commit": "c66e3707aaf30fedb7f0ac7417c2ef194776ce59",
+  "working_tree_dirty_at_start": true,
+  "python": "3.9.6",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "torch": "2.8.0",
+  "torchvision": "0.23.0",
+  "device": "mps",
+  "gpu_name": null,
+  "pretrained_weights": "EfficientNet_B0_Weights.IMAGENET1K_V1",
+  "class_to_idx": {
+    "battery": 0,
+    "biological": 1,
+    "cardboard": 2,
+    "clothes": 3,
+    "glass": 4,
+    "metal": 5,
+    "paper": 6,
+    "plastic": 7,
+    "shoes": 8,
+    "trash": 9
+  },
+  "selection_metric": "minimum validation loss",
+  "frozen_backbone_batchnorm": "eval; running statistics fixed",
+  "preprocessing": "shared src/data/transforms.py, 224 pixels, ImageNet normalization",
+  "manifest_sha256": {
+    "train": "8bfbe535b832b51f2cb6ad47534e41d31ce92a79674733dd9e0a9aa5a2fa37a4",
+    "val": "eb1c0de2b6f73bfaf78c78e23e62be4c1f7280bbb0ae0e0f8725630842f94cec",
+    "test": "153606e8044c4e8781ae00a645017f4c8297ff949e4e809c8dcecb77748d3e3d"
+  },
+  "source_file_sha256": {
+    "src/data/transforms.py": "9984eb4a09bf892da00e7ca5ffaadf2f519e2e145764a5a651e2b8d1a14f9492",
+    "src/training/trainer.py": "9649e722ec3f6652863923b05ada4f44d7150fe75a0b3362f0fafab8caa1340e",
+    "src/models/efficientnetb0.py": "dca25668da6c2cac17a6b4ec42b17d0cc982a620c587ac1529c1edbb3c841c67"
+  },
+  "completed_at_utc": "2026-09-26T18:19:33.853421+00:00",
+  "best_epoch": 8,
+  "best_val_loss": 0.17991846008414802,
+  "total_epoch_time_seconds": 1071.709884625,
+  "validation_metrics": {
+    "accuracy": 0.9446693657219973,
+    "macro_precision": 0.933028726222488,
+    "macro_recall": 0.9311462739137049,
+    "macro_f1": 0.9315009957738308,
+    "weighted_f1": 0.9445030300773147
+  }
+}
