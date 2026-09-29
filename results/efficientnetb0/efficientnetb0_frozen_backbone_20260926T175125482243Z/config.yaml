@@ -1,0 +1,39 @@
+base:
+  classes:
+  - battery
+  - biological
+  - cardboard
+  - clothes
+  - glass
+  - metal
+  - paper
+  - plastic
+  - shoes
+  - trash
+  data:
+    dataset_root: data/raw/garbage-dataset
+    image_size: 224
+    manifest_dir: data/manifests
+    num_classes: 10
+  project:
+    name: waste-classification
+    seed: 42
+  training:
+    batch_size: 32
+    num_workers: 0
+experiment:
+  experiment:
+    name: efficientnetb0_frozen_backbone
+    seed: 42
+  model:
+    freeze_backbone: true
+    name: efficientnetb0
+    num_classes: 10
+    pretrained: true
+  optimizer:
+    name: AdamW
+  training:
+    batch_size: 32
+    epochs: 10
+    learning_rate: 0.001
+    weight_decay: 0.0001

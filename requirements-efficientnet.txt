@@ -1,0 +1,13 @@
+# Portable direct dependencies, not a lock file.
+# Install a matching torch/torchvision pair for your platform first:
+# https://pytorch.org/get-started/locally/
+# On a supported Mac: python -m pip install torch torchvision
+numpy
+pandas
+pillow
+PyYAML
+scikit-learn
+matplotlib
+tqdm
+ipykernel
+jupyterlab

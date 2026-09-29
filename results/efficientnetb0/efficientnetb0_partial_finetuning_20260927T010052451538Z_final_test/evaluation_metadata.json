@@ -1,0 +1,42 @@
+{
+  "completed_at_utc": "2026-09-27T01:56:52.058928+00:00",
+  "checkpoint": "results/efficientnetb0/efficientnetb0_partial_finetuning_20260927T010052451538Z/best.pth",
+  "checkpoint_sha256": "3f5558ba1ac75428203ba9545d3f36a98a53dd26190adee37ed592a4ac9e12a5",
+  "selected_epoch": 4,
+  "selection": {
+    "selection_metric": "minimum validation loss",
+    "fine_tuning_improved": true,
+    "selected_checkpoint": "results/efficientnetb0/efficientnetb0_partial_finetuning_20260927T010052451538Z/best.pth"
+  },
+  "test_count": 2965,
+  "manifest_sha256": {
+    "train": "8bfbe535b832b51f2cb6ad47534e41d31ce92a79674733dd9e0a9aa5a2fa37a4",
+    "val": "eb1c0de2b6f73bfaf78c78e23e62be4c1f7280bbb0ae0e0f8725630842f94cec",
+    "test": "153606e8044c4e8781ae00a645017f4c8297ff949e4e809c8dcecb77748d3e3d"
+  },
+  "class_to_idx": {
+    "battery": 0,
+    "biological": 1,
+    "cardboard": 2,
+    "clothes": 3,
+    "glass": 4,
+    "metal": 5,
+    "paper": 6,
+    "plastic": 7,
+    "shoes": 8,
+    "trash": 9
+  },
+  "source_commit": "17370349e21bed8c399f3216f80490fe8723ca16",
+  "device": "mps",
+  "python": "3.9.6",
+  "torch": "2.8.0",
+  "torchvision": "0.23.0",
+  "evaluation_seconds": 18.026427583,
+  "preprocessing": "shared get_eval_transforms; shuffle=False; batch_size=32",
+  "source_sha256": {
+    "src/data/dataset.py": "9deee5fee266fd788e1737bb50800f5cb1697f1e349a9ec577dc50f0149b0fdc",
+    "src/data/transforms.py": "9984eb4a09bf892da00e7ca5ffaadf2f519e2e145764a5a651e2b8d1a14f9492",
+    "src/models/efficientnetb0.py": "dca25668da6c2cac17a6b4ec42b17d0cc982a620c587ac1529c1edbb3c841c67",
+    "src/evaluation/metrics.py": "590fa6975dd3ee45ad2f082a6c0f31b6c83fb594e798e86f35a24f66f0cdda58"
+  }
+}

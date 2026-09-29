@@ -1,0 +1,52 @@
+{
+  "run_id": "efficientnetb0_partial_finetuning_20260927T010052451538Z",
+  "training_complete": true,
+  "started_at_utc": "2026-09-27T01:00:52.500661+00:00",
+  "source_commit": "21dc3c893bc0420789082001758e78fd5560de60",
+  "working_tree_dirty_at_start": true,
+  "python": "3.9.6",
+  "platform": "macOS-26.5.2-arm64-arm-64bit",
+  "torch": "2.8.0",
+  "torchvision": "0.23.0",
+  "device": "mps",
+  "gpu_name": null,
+  "pretrained_weights": "EfficientNet_B0_Weights.IMAGENET1K_V1",
+  "class_to_idx": {
+    "battery": 0,
+    "biological": 1,
+    "cardboard": 2,
+    "clothes": 3,
+    "glass": 4,
+    "metal": 5,
+    "paper": 6,
+    "plastic": 7,
+    "shoes": 8,
+    "trash": 9
+  },
+  "selection_metric": "minimum validation loss",
+  "backbone_mode": "eval; last two feature blocks trainable; BatchNorm statistics fixed",
+  "baseline_run": "efficientnetb0_frozen_backbone_20260926T175125482243Z",
+  "baseline_checkpoint_sha256": "9c56d0f2dbc1f5512a43c27a2fa9c9b5777ca0076ceacb0b8d41da8184690616",
+  "preprocessing": "shared src/data/transforms.py, 224 pixels, ImageNet normalization",
+  "manifest_sha256": {
+    "train": "8bfbe535b832b51f2cb6ad47534e41d31ce92a79674733dd9e0a9aa5a2fa37a4",
+    "val": "eb1c0de2b6f73bfaf78c78e23e62be4c1f7280bbb0ae0e0f8725630842f94cec",
+    "test": "153606e8044c4e8781ae00a645017f4c8297ff949e4e809c8dcecb77748d3e3d"
+  },
+  "source_file_sha256": {
+    "src/data/transforms.py": "9984eb4a09bf892da00e7ca5ffaadf2f519e2e145764a5a651e2b8d1a14f9492",
+    "src/training/trainer.py": "9649e722ec3f6652863923b05ada4f44d7150fe75a0b3362f0fafab8caa1340e",
+    "src/models/efficientnetb0.py": "dca25668da6c2cac17a6b4ec42b17d0cc982a620c587ac1529c1edbb3c841c67"
+  },
+  "completed_at_utc": "2026-09-27T01:41:07.799663+00:00",
+  "best_epoch": 4,
+  "best_val_loss": 0.17163714903506405,
+  "total_epoch_time_seconds": 512.739375793,
+  "validation_metrics": {
+    "accuracy": 0.9483805668016194,
+    "macro_precision": 0.9371472316338562,
+    "macro_recall": 0.9360328691267729,
+    "macro_f1": 0.9359666706077577,
+    "weighted_f1": 0.9484576829157358
+  }
+}
