@@ -50,3 +50,18 @@ def create_resnet50(
     )
 
     return model
+
+
+def unfreeze_resnet_layer4(model):
+    """
+    Unfreeze the final ResNet residual stage (layer4)
+    together with the classification head.
+    """
+
+    for parameter in model.layer4.parameters():
+        parameter.requires_grad = True
+
+    for parameter in model.fc.parameters():
+        parameter.requires_grad = True
+
+    return model

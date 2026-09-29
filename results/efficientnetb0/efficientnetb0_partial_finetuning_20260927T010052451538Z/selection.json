@@ -1,0 +1,5 @@
+{
+  "selection_metric": "minimum validation loss",
+  "fine_tuning_improved": true,
+  "selected_checkpoint": "results/efficientnetb0/efficientnetb0_partial_finetuning_20260927T010052451538Z/best.pth"
+}

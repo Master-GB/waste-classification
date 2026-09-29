@@ -1,0 +1,2 @@
+model,configuration,accuracy,macro_precision,macro_recall,macro_f1,weighted_f1,macro_roc_auc,weighted_roc_auc,parameters,parameters_millions,checkpoint_size_mb,inference_ms_per_image,throughput_images_per_second
+ResNet50,ImageNet pretrained + layer4 fine-tuning,0.9524451939291737,0.9435920205265959,0.943554108396355,0.9433621045567436,0.9523112666970334,0.9977456938985206,0.9980793104525347,23528522,23.528522,204.42130374908447,4.474625497470213,223.48238988164775
